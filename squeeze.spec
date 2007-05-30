@@ -1,10 +1,11 @@
 %define major 0
-%define libname %mklibname squeeze %{major}
+%define apiversion 1
+%define libname %mklibname %{name}- %{apiversion} %{major}
 
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
 Version:	0.2.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
@@ -68,6 +69,10 @@ desktop-file-install --vendor="" \
 %{clean_desktop_database}
 %clean_icon_cache hicolor
 
+%post -n %{libname} -p /sbin/ldconfig
+
+%postun -n %{libname} -p /sbin/ldconfig
+
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
@@ -84,7 +89,7 @@ desktop-file-install --vendor="" \
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.%{major}*
+%{_libdir}/*%{apiversion}.so.%{major}*
 
 %files -n %{libname}-devel
 %defattr(-,root,root)
