@@ -4,12 +4,15 @@
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
 Version:	0.2.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
 Source0:	http://squeeze.xfce.org/downloads/%{name}-%{version}.tar.bz2
 BuildRequires:	thunar-devel
+BuildRequires:	desktop-file-utils
+Requires(post):	desktop-file-utils
+Requires(postun): desktop-file-utils
 Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -49,6 +52,11 @@ Development files for squeeze.
 %makeinstall_std
 
 %find_lang %{name}
+
+desktop-file-install --vendor="" \
+    --add-category="X-MandrivaLinux-System-Archiving-Compression" \
+    --add-only-show-in="XFCE" \
+    --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %post
 %{update_menus}
