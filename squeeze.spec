@@ -1,5 +1,5 @@
 %define major 0
-%define libname %mklibname squeeze-1_ %{major}
+%define libname %mklibname squeeze %{major}
 
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
