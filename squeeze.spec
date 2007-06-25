@@ -1,11 +1,12 @@
 %define major 0
 %define apiversion 1
 %define libname %mklibname %{name}- %{apiversion} %{major}
+%define develname %mklibname %{name} -d
 
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
 Version:	0.2.1
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPL
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
@@ -19,9 +20,9 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Squeeze is a modern and advanced archive manager for 
-the Xfce Desktop Environment.
-Its design adheres to the Xfce philosophy, which basically 
-means Squeeze is both fast and easy to use.
+the Xfce Desktop Environment.Its design adheres to the 
+Xfce philosophy, which basically means Squeeze is both 
+fast and easy to use.
 
 %package -n %{libname}
 Summary:	Main library for squeeze
@@ -31,14 +32,14 @@ Obsoletes:	%mklibname %{name} 0
 %description -n %{libname}
 Main library for squeeze.
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary:	Development files for squeeze
 Group:		Development/Other
-Provides:	%{name}-devel
-Provides:	lib%{name}-devel
-Obsoletes:	%mklibname %{name} -d 0
+Provides:	%{name}-devel = %{version}-%{release}
+Provides:	lib%{name}-devel = %{version}-%{release}
+Obsoletes:	%mklibname %{name}- 1 0 -d
 
-%description -n %{libname}-devel
+%description -n %{develname}
 Development files for squeeze.
 
 %prep
@@ -57,7 +58,6 @@ Development files for squeeze.
 %find_lang %{name}
 
 desktop-file-install --vendor="" \
-    --add-category="X-MandrivaLinux-System-Archiving-Compression" \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
@@ -93,7 +93,7 @@ desktop-file-install --vendor="" \
 %defattr(-,root,root)
 %{_libdir}/*%{apiversion}.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/*.a
 %{_libdir}/*.la
