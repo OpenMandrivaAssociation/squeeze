@@ -57,7 +57,7 @@ Development files for squeeze.
 
 %find_lang %{name}
 
-desktop-file-install --vendor="" \
+desktop-file-install \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
