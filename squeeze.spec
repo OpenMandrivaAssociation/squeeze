@@ -6,7 +6,7 @@
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
 Version:	0.2.1
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	GPL
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
@@ -50,7 +50,11 @@ Development files for squeeze.
 %patch1 -p1
 
 %build
-%configure2_5x
+%configure2_5x \
+	--enable-gslices \
+	--enable-pathbar \
+	--enable-toolbar \
+	--enable-iter-slices
 
 %make
 
