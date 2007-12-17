@@ -19,7 +19,6 @@ BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
 Requires(postun): desktop-file-utils
 Requires:	%{libname} = %{version}-%{release}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Squeeze is a modern and advanced archive manager for 
