@@ -5,8 +5,8 @@
 
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
-Version:	0.2.1
-Release:	%mkrel 8
+Version:	0.2.2
+Release:	%mkrel 1
 License:	GPlv2+
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
