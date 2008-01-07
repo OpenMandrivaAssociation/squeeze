@@ -1,6 +1,6 @@
 %define major 0
-%define apiversion 1
-%define libname %mklibname %{name}- %{apiversion} %{major}
+%define apiversion 0.2
+%define libname %mklibname %{name} %{apiversion} %{major}
 %define develname %mklibname %{name} -d
 
 Summary:	Adavanced archive manager for the Xfce
@@ -13,7 +13,6 @@ Url:		http://squeeze.xfce.org
 Source0:	http://squeeze.xfce.org/downloads/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.2.1-TreeView-border.patch
 Patch1:		%{name}-0.2.1-recent-documents.patch
-Patch2:		%{name}-0.2.1-as-needed.patch
 BuildRequires:	thunar-devel
 BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
@@ -31,6 +30,7 @@ fast and easy to use.
 Summary:	Main library for squeeze
 Group:		System/Libraries
 Obsoletes:	%mklibname %{name} 0
+Obsoletes:	%mklibname %{name}- 1
 
 %description -n %{libname}
 Main library for squeeze.
@@ -49,7 +49,6 @@ Development files for squeeze.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %configure2_5x \
@@ -105,6 +104,8 @@ desktop-file-install \
 
 %files -n %{develname}
 %defattr(-,root,root)
+%{_includedir}/*
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/*.so
+%{_libdir}/pkgconfig/*.pc
