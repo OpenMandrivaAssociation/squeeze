@@ -6,7 +6,7 @@
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
 Version:	0.2.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPlv2+
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
@@ -30,7 +30,7 @@ fast and easy to use.
 Summary:	Main library for squeeze
 Group:		System/Libraries
 Obsoletes:	%mklibname %{name} 0
-Obsoletes:	%mklibname %{name}- 1
+Obsoletes:	%mklibname %{name}- 1 0
 
 %description -n %{libname}
 Main library for squeeze.
