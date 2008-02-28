@@ -5,15 +5,14 @@
 
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
-Version:	0.2.2
-Release:	%mkrel 3
+Version:	0.2.3
+Release:	%mkrel 1
 License:	GPlv2+
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
 Source0:	http://squeeze.xfce.org/downloads/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.2.1-TreeView-border.patch
 Patch1:		%{name}-0.2.1-recent-documents.patch
-Patch2:		%{name}-0.2.2-fix-sigsev-against-glib215.patch
 BuildRequires:	thunar-devel
 BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
@@ -50,7 +49,6 @@ Development files for squeeze.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %configure2_5x \
