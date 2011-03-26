@@ -93,9 +93,6 @@ desktop-file-install \
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS README ChangeLog NEWS TODO
