@@ -6,7 +6,7 @@
 Summary:	Adavanced archive manager for the Xfce
 Name:		squeeze
 Version:	0.2.3
-Release:	%mkrel 10
+Release:	11
 License:	GPlv2+
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
@@ -61,8 +61,6 @@ Development files for squeeze.
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %makeinstall_std
 
 %find_lang %{name}
@@ -71,30 +69,7 @@ desktop-file-install \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%{update_desktop_database}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%{clean_desktop_database}
-%clean_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS README ChangeLog NEWS TODO
 %doc %{_datadir}/gtk-doc/html/*
 %{_bindir}/squeeze
@@ -105,11 +80,9 @@ desktop-file-install \
 %{_datadir}/pixmaps/squeeze/*.png
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*%{apiversion}.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/*.a
 %{_libdir}/*.la
