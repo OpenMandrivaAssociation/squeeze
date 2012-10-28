@@ -13,12 +13,11 @@ Url:		http://squeeze.xfce.org
 Source0:	http://squeeze.xfce.org/downloads/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.2.1-TreeView-border.patch
 Patch1:		%{name}-0.2.1-recent-documents.patch
-BuildRequires:	thunar-devel
+BuildRequires:	thunar-vfs-devel
 BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
 Requires(postun): desktop-file-utils
 Requires:	%{libname} = %{version}-%{release}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Squeeze is a modern and advanced archive manager for 
@@ -52,7 +51,9 @@ Development files for squeeze.
 
 %build
 %define Werror_cflags %nil
+
 %configure2_5x \
+	--disable-static \
 	--enable-gslices \
 	--enable-pathbar \
 	--enable-toolbar \
@@ -84,7 +85,5 @@ desktop-file-install \
 
 %files -n %{develname}
 %{_includedir}/*
-%{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
