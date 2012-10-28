@@ -14,6 +14,7 @@ Source0:	http://squeeze.xfce.org/downloads/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.2.1-TreeView-border.patch
 Patch1:		%{name}-0.2.1-recent-documents.patch
 BuildRequires:	thunar-vfs-devel
+BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
 Requires(postun): desktop-file-utils
