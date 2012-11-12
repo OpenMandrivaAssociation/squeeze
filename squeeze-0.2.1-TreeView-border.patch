@@ -1,0 +1,11 @@
+diff -Naur squeeze-0.2.1/src/notebook.c squeeze-0.2.1.tpg/src/notebook.c
+--- squeeze-0.2.1/src/notebook.c	2007-04-15 21:06:57.000000000 +0000
++++ squeeze-0.2.1.tpg/src/notebook.c	2007-09-04 15:57:13.000000000 +0000
+@@ -511,6 +511,7 @@
+ 	GtkWidget *scroll_window = gtk_scrolled_window_new(NULL, NULL);
+ 
+ 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll_window), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
++	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroll_window), GTK_SHADOW_IN);
+ 
+ 	gtk_button_set_image(GTK_BUTTON(close_button), close_image);
+ 	gtk_button_set_relief(GTK_BUTTON(close_button), GTK_RELIEF_NONE);

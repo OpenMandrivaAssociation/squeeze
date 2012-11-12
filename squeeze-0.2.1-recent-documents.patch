@@ -1,0 +1,34 @@
+diff -Naur squeeze-0.2.1/src/main_window.c squeeze-0.2.1.tpg/src/main_window.c
+--- squeeze-0.2.1/src/main_window.c	2007-04-15 21:06:57.000000000 +0000
++++ squeeze-0.2.1.tpg/src/main_window.c	2007-09-04 15:58:54.000000000 +0000
+@@ -1187,8 +1187,30 @@
+ {
+ 	LSQArchive *archive = NULL;
+ 
++#if GTK_CHECK_VERSION(2,10,0)
++	GtkRecentData recent_data;
++	gchar *uri;
++#endif
++
+ 	if(!lsq_open_archive(path, &archive))
+ 	{
++
++#if GTK_CHECK_VERSION(2,10,0)
++		uri = g_filename_to_uri(path, NULL, NULL);
++		if(uri != NULL)
++		{
++			recent_data.display_name = NULL;
++			recent_data.description = NULL;
++			recent_data.mime_type = (gchar*) lsq_archive_get_mimetype(archive);
++			recent_data.app_name = _("Squeeze Archive Manager");
++			recent_data.app_exec = "squeeze %f";
++			recent_data.groups = NULL;
++			recent_data.is_private = FALSE;
++			gtk_recent_manager_add_full(gtk_recent_manager_get_default(), uri, &recent_data);
++			g_free(uri);
++		}
++#endif
++
+ 		if(replace < 0)
+ 			sq_notebook_add_archive(SQ_NOTEBOOK(window->notebook), archive, FALSE);
+ 		else
