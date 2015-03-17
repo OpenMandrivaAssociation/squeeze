@@ -49,7 +49,7 @@ dos2unix TODO
 
 %build
 %define Werror_cflags %nil
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-gslices \
 	--enable-pathbar \
@@ -71,7 +71,7 @@ desktop-file-install \
 %doc AUTHORS README ChangeLog NEWS TODO
 %doc %{_datadir}/gtk-doc/html/*
 %{_bindir}/squeeze
-%{_libdir}/thunar-archive-plugin/squeeze.tap
+%{_libexecdir}/thunar-archive-plugin/squeeze.tap
 %{_datadir}/applications/squeeze.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
