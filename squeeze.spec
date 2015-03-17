@@ -8,7 +8,7 @@
 Summary:	Advanced archive manager for the Xfce
 Name:		squeeze
 Version:	0.2.3
-Release:	13
+Release:	14
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		http://squeeze.xfce.org
