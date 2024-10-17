@@ -11,7 +11,7 @@ Version:	0.2.3
 Release:	14
 License:	GPLv2+
 Group:		Archiving/Compression
-Url:		http://squeeze.xfce.org
+Url:		https://squeeze.xfce.org
 Source0:	http://archive.xfce.org/src/apps/%{name}/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.2.1-TreeView-border.patch
 Patch1:		%{name}-0.2.1-recent-documents.patch
