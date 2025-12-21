@@ -15,6 +15,11 @@ Url:		https://squeeze.xfce.org
 Source0:	http://archive.xfce.org/src/apps/%{name}/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.2.1-TreeView-border.patch
 Patch1:		%{name}-0.2.1-recent-documents.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(thunar-vfs-1)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	desktop-file-utils
